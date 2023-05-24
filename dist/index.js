@@ -17,7 +17,6 @@ function getHandScore(input) {
         D: 0,
     };
     const cards = results;
-    console.log(cards);
     for (let i = 0; i < cards.length; i++) {
         const card = cards[i];
         const suit = card.charAt(0);
@@ -31,8 +30,15 @@ function getHandScore(input) {
         else {
             score[suit] += parseInt(rank);
         }
-        console.log(score);
+        console.log(`Card${i + 1}:`, score);
     }
+    let maxScore = 0;
+    for (let suit in score) {
+        maxScore = Math.max(maxScore, score[suit]);
+        console.log(`${suit}:`, score[suit]);
+    }
+    console.log(`So, the score is ${maxScore} here`);
+    return maxScore;
 }
-getHandScore("SA-S2-S10");
+getHandScore("S8 S10 CA");
 //# sourceMappingURL=index.js.map
